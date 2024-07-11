@@ -2,7 +2,7 @@
 using System.Numerics;
 
 List<Debtor> debtors = new List<Debtor> {
-            new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "530-662-7732", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
+            new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "120-345-6789", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
             new Debtor("Danielle W. Grier", DateTime.Parse("October 18, 1953"), "321-473-4178", "DanielleWGrier@rhyta.com", "1973 Stoneybrook Road Maitland, FL 32751", 3599),
             new Debtor("Connie W. Lemire", DateTime.Parse("June 18, 1963"), "828-321-3751", "ConnieWLemire@rhyta.com", "2432 Hannah Street Andrews, NC 28901", 1219),
             new Debtor("Coy K. Adams", DateTime.Parse("March 1, 1976"), "410-347-1307", "CoyKAdams@dayrep.com", "2411 Blue Spruce Lane Baltimore, MD 21202", 3784),
@@ -87,4 +87,77 @@ List<Debtor> debtors = new List<Debtor> {
 //}
 
 //8) Borcu, umumi borclarin orta borcunnan cox olan borclulari cixarmaq ve evvel familyaya gore sonra ise meblegin azalmagina gore sortirovka etmek
-var filterDebtors = debtors.Where(d=>d.Debt> d.Debt).ToList();
+//double averageDebt = debtors.Average(d => d.Debt);
+//var filteredDebtors8 = debtors.Where(d => d.Debt > averageDebt)
+//                              .OrderBy(d => d.Name.Split(' ').Last())
+//                              .ThenByDescending(d => d.Debt)
+//                              .ToList();
+//Console.WriteLine("8) Borcu, umumi borclarin orta borcunnan cox olan borclular:");
+//foreach (var d in filteredDebtors8)
+//{
+//    Console.WriteLine($"{d.Name} - Debt: {d.Debt}");
+
+
+// 9) Telefon nomresinde 8 olmayan borclularin yalniz familyasin, yashin ve umumi borcun meblegin cixarmaq
+//var filteredDebtors9 = debtors.Where(d => !d.PhoneNumber.Contains('8')).Select(d => new { FamilyName = d.Name.Split(' ').Last(), Age = 2024 - d.DateOfBirth.Year, d.Debt }).ToList();
+//foreach (var d in filteredDebtors9)
+//{
+//    Console.WriteLine($"Familya: {d.FamilyName}, Yash: {d.Age}, Umumi borc: {d.Debt}");
+//}
+
+// 11) Adinda ve familyasinda hec olmasa 3 eyni herf olan borclularin siyahisin cixarmaq ve onlari elifba sirasina gore sortirovka elemek
+//var filteredDebtors11 = debtors.Where(d => d.Name.GroupBy(c => c).Any(g => g.Count() >= 3)).OrderBy(d => d.Name).ToList();
+//Console.WriteLine("11) Adinda ve familyasinda hec olmasa 3 eyni herf olan borclular:");
+//foreach (var d in filteredDebtors11)
+//{
+//    Console.WriteLine(d.Name);
+//}
+
+
+// 13) Borclulardan en coxu hansi ilde dogulubsa hemin ili cixartmaq
+//var mostCommonBirthYear = debtors.GroupBy(d => d.DateOfBirth.Year).OrderByDescending(g => g.Count()).First().Key;
+//Console.WriteLine($"13) Borclulardan en coxu hansi ilde dogulubsa hemin il: {mostCommonBirthYear}");
+
+// 14) Borcu en boyuk olan 5 borclunun siyahisini cixartmaq
+//var top5Debtors = debtors.OrderByDescending(d => d.Debt).Take(5).ToList();
+//foreach (var d in top5Debtors)
+//{
+//    Console.WriteLine($"{d.Name} - Debt: {d.Debt}");
+//}
+
+// 15) Butun borcu olanlarin borcunu cemleyib umumi borcu cixartmaq
+//var totalDebt = debtors.Sum(d => d.Debt);
+//Console.WriteLine($"15) Butun borcu olanlarin borcunun cemi: {totalDebt}");
+
+// 16) 2ci dunya muharibesin gormush borclularin siyahisi cixartmaq
+//var ww2Debtors = debtors.Where(d => d.DateOfBirth.Year <= 1945).ToList();
+//foreach (var d in ww2Debtors)
+//{
+//    Console.WriteLine(d.Name);
+//}
+
+// 18) Nomresinde tekrar reqemler olmayan borclularin ve onlarin borcunun meblegin cixartmaq
+//tezden bax ekrana cixmadi
+//var noRepeatDigitPhoneDebtors = debtors.Where(d => d.PhoneNumber.Distinct().Count() == d.PhoneNumber.Length).ToList();
+//Console.WriteLine("18) Nomresinde tekrar reqemler olmayan borclular:");
+//foreach (var d in noRepeatDigitPhoneDebtors)
+//{
+//    Console.WriteLine($"{d.Name} - Debt: {d.Debt}");
+//}
+
+
+
+//tekrar bax
+//19)Tesevvur edek ki, butun borclari olanlar bugunden etibaren her ay 500 azn pul odeyecekler. Oz ad gunune kimi borcun oduyub qurtara bilenlerin siyahisin cixartmaq
+
+
+// 20) Adindaki ve familyasindaki herflerden "smile" sozunu yaza bileceyimiz borclularin siyahisini cixartmaq
+//var smileDebtors = debtors.Where(d =>
+//{
+//    var fullName = d.Name.ToLower();
+//    return "smile".All(c => fullName.Contains(c));
+//}).ToList();
+//foreach (var d in smileDebtors)
+//{
+//    Console.WriteLine(d.Name);
+//}
